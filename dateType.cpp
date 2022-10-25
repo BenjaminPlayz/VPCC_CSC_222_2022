@@ -10,11 +10,26 @@ int month;
 int day;
 
 public:
-dateType(int x = 1, int y = 1, int z = 1900) {
+    dateType(int x, int y, int z);
+    void setDate(int d, int m, int y);
+    bool isLeapYear(int y);
+    int numOfDaysForMonthYear(int m, int y);
+    void setMonth(int m);
+    void setDay(int d);
+    void setYear(int y);
+    int getMonth();
+    int getDay();
+    int getYear();
+    string printDate();
+    int numOfDaysPassed();
+    int numOfDaysLeft();
+};
+
+dateType::dateType(int x = 1, int y = 1, int z = 1900) {
     setDate(x, y, z);
 }
 
-void setDate(int d, int m, int y) {
+void dateType::setDate(int d, int m, int y) {
     if (y >= 1900) {
         year = y;
     }
@@ -35,7 +50,7 @@ void setDate(int d, int m, int y) {
     }
 }
 
-bool isLeapYear(int y) {
+bool dateType::isLeapYear(int y) {
     if (y % 400 == 0) {
         return true;
     }
@@ -50,7 +65,7 @@ bool isLeapYear(int y) {
     }
 }
 
-int numOfDaysForMonthYear(int m, int y) {
+int dateType::numOfDaysForMonthYear(int m, int y) {
     if (m == 1 || m == 4 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12) {
        return 31;
     }
@@ -67,39 +82,35 @@ int numOfDaysForMonthYear(int m, int y) {
     return 1;
 }
 
-void getDate() {
-cout << month << "-" << day << "-" << year << endl;
-}
-
-void setMonth(int x) {
+void dateType::setMonth(int x) {
     month = x;
 }
 
-void setDay(int x) {
+void dateType::setDay(int x) {
     day = x;
 }
 
-void setYear(int x) {
+void dateType::setYear(int x) {
     year = x;
 }
 
-int getMonth() {
+int dateType::getMonth() {
     return month;
 }
 
-int getDay() {
+int dateType::getDay() {
     return day;
-}
+}    
 
-int getYear() {
+int dateType::getYear() {
     return year;
 }
 
-string printDate() {
+string dateType::printDate() {
     return to_string(month) + "-" + to_string(day) + "-" + to_string(year);
 }
 
-int numOfDaysPassed() {
+int dateType::numOfDaysPassed() {
     int numDays = 0;
     for (int i = 1; i <= month-1; i++) {
         numDays += numOfDaysForMonthYear(i, year);
@@ -107,12 +118,9 @@ int numOfDaysPassed() {
     return numDays + day;
 }
 
-int numOfDaysLeft() {
+int dateType::numOfDaysLeft() {
     return (isLeapYear(year) ? 366 : 365) - numOfDaysPassed();
 }
-
-
-};
 
 int main(){
 
