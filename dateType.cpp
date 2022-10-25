@@ -1,6 +1,6 @@
 #include "dateType.h"
 
-dateType::dateType(int d = 1, int m = 1, int y = 1900) {
+dateType::dateType(int d, int m, int y) {
     setDate(d, m, y);
 }
 

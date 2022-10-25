@@ -8,7 +8,7 @@ class extDateType : public dateType {
 
     public:
 
-    extDateType(int x, int y, int z);
+    extDateType(int d = 1, int m = 1, int y = 1900);
     string getExtMonth();
     string printLongDate();
     string printLongMonthYear();

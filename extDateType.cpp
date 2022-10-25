@@ -2,7 +2,7 @@
 
 string monthsOfTheYear[] = {"", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
 
-extDateType::extDateType(int d = 1, int m = 1, int y = 1900) : dateType(d, m, y) {
+extDateType::extDateType(int d, int m, int y) : dateType(d, m, y) {
     month = monthsOfTheYear[getMonth()];
 }
 

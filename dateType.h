@@ -10,7 +10,7 @@ int dDay;
 int dYear;
 
 public:
-    dateType(int d, int m, int y);
+    dateType(int d = 1, int m = 1, int y = 1900);
     void setDate(int d, int m, int y);
     bool isLeapYear(int y);
     int numOfDaysForMonthYear(int m, int y);
