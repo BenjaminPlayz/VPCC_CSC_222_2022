@@ -1,30 +1,4 @@
-#include <iostream>
-#include <string>
-#include <iomanip>
-using namespace std;
-
-class dateType {
-private:
-int year;
-int month;
-int day;
-
-public:
-    dateType(int x, int y, int z);
-    void setDate(int d, int m, int y);
-    bool isLeapYear(int y);
-    int numOfDaysForMonthYear(int m, int y);
-    void setMonth(int m);
-    void setDay(int d);
-    void setYear(int y);
-    int getMonth();
-    int getDay();
-    int getYear();
-    string printDate();
-    int numOfDaysPassed();
-    int numOfDaysLeft();
-    void setDate(int numofDaysToAdd);
-};
+#include "dateType.h"
 
 dateType::dateType(int x = 1, int y = 1, int z = 1900) {
     setDate(x, y, z);
@@ -32,22 +6,22 @@ dateType::dateType(int x = 1, int y = 1, int z = 1900) {
 
 void dateType::setDate(int d, int m, int y) {
     if (y >= 1900) {
-        year = y;
+        dYear = y;
     }
     else {
-        year = 1900;
+        dYear = 1900;
     }
     if (m >= 1 && m <= 12) {
-        month = m;
+        dMonth = m;
     }
     else {
-        month = 1;
+        dMonth = 1;
     }
-    if (d >= 1 && d <= numOfDaysForMonthYear(month, year)) {
-        day = d;
+    if (d >= 1 && d <= numOfDaysForMonthYear(dMonth, dYear)) {
+        dDay = d;
     }
     else {
-        day = 1;
+        dDay = 1;
     }
 }
 
@@ -84,43 +58,43 @@ int dateType::numOfDaysForMonthYear(int m, int y) {
 }
 
 void dateType::setMonth(int m) {
-    setDate(day, m, year);
+    setDate(dDay, m, dYear);
 }
 
 void dateType::setDay(int d) {
-    setDate(d, month, year);
+    setDate(d, dMonth, dYear);
 }
 
 void dateType::setYear(int y) {
-    setDate(day, month, y);
+    setDate(dDay, dMonth, y);
 }
 
 int dateType::getMonth() {
-    return month;
+    return dMonth;
 }
 
 int dateType::getDay() {
-    return day;
+    return dDay;
 }    
 
 int dateType::getYear() {
-    return year;
+    return dYear;
 }
 
 string dateType::printDate() {
-    return to_string(month) + "-" + to_string(day) + "-" + to_string(year);
+    return to_string(dMonth) + "-" + to_string(dDay) + "-" + to_string(dYear);
 }
 
 int dateType::numOfDaysPassed() {
     int numDays = 0;
-    for (int i = 1; i <= month-1; i++) {
-        numDays += numOfDaysForMonthYear(i, year);
+    for (int i = 1; i <= dMonth-1; i++) {
+        numDays += numOfDaysForMonthYear(i, dYear);
     }
-    return numDays + day;
+    return numDays + dDay;
 }
 
 int dateType::numOfDaysLeft() {
-    return (isLeapYear(year) ? 366 : 365) - numOfDaysPassed();
+    return (isLeapYear(dYear) ? 366 : 365) - numOfDaysPassed();
 }
 
 // void dateType::setDate(int numOfDaysToAdd) {
@@ -144,7 +118,7 @@ void dateType::setDate(int numOfDaysToAdd) {
         numDaysTotal = numDaysTotal - numOfDaysLeft() - 1;
     }
     int m = 1;
-    int y = year;
+    int y = dYear;
     while (numDaysTotal > numOfDaysForMonthYear(m, y)) {
         numDaysTotal -= numOfDaysForMonthYear(m, y);
         m++;
@@ -179,9 +153,9 @@ int main(){
     cout << "Date is now set to: " << myDate.printDate() << endl;
     myDate.setMonth(0);
     cout << "Resetting month to 0: " << myDate.getMonth() << endl;
-    cout << "Number of days left: " << myDate.numOfDaysLeft() << endl;
-    cout << "Date is now set to: " << myDate.printDate() << endl;
-    myDate.setDate(1096);
-    cout << "After 1096 days, date will be: " << myDate.printDate() << endl;
+    // cout << "Number of days left: " << myDate.numOfDaysLeft() << endl;
+    // cout << "Date is now set to: " << myDate.printDate() << endl;
+    // myDate.setDate(1461);
+    // cout << "After 1461 days, date will be: " << myDate.printDate() << endl;
     return 0;
 }
