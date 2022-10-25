@@ -127,35 +127,35 @@ void dateType::addDays(int numOfDaysToAdd) {
     setDay(numDaysTotal);
 }
 
-int main(){
+// int main(){
 
-    dateType myDefaultDate;
-    cout << "Default constructor: " << myDefaultDate.printDate() << endl;
-    dateType myDate(20,2,2003);
-    cout << "Constructor: " << myDate.printDate() << endl;
-    cout << "Number of days passed: " << myDate.numOfDaysPassed() << endl;
-    cout << "Number of days left: " << myDate.numOfDaysLeft() << endl;
-    cout << "Number of days in month: " << myDate.numOfDaysForMonthYear(myDate.getMonth(), myDate.getYear()) << endl;
-    myDate.addDays(15);
-    cout << "After 15 days, date will be: " << myDate.printDate() << endl;
-    myDate.setYear(2000);
-    cout << "Resetting year to 2000: " << myDate.getYear()  << endl;
-    cout << myDate.printDate() << endl;
-    myDate.setMonth(2);
-    cout << "Resetting month to 2: " << myDate.getMonth() << endl;
-    cout << myDate.printDate() << endl;
-    myDate.setDay(29);
-    cout << "Resetting day to 29: " << myDate.getDay() << endl;
-    cout << myDate.printDate() << endl;
-    cout << "Date is now set to: " << myDate.printDate() << endl;
-    myDate.setYear(2001);
-    cout << "Resetting year to 2001: " << myDate.getYear()  << endl;
-    cout << "Date is now set to: " << myDate.printDate() << endl;
-    myDate.setMonth(0);
-    cout << "Resetting month to 0: " << myDate.getMonth() << endl;
-    cout << "Number of days left: " << myDate.numOfDaysLeft() << endl;
-    cout << "Date is now set to: " << myDate.printDate() << endl;
-    myDate.addDays(1461);
-    cout << "After 1461 days, date will be: " << myDate.printDate() << endl;
-    return 0;
-}
+//     dateType myDefaultDate;
+//     cout << "Default constructor: " << myDefaultDate.printDate() << endl;
+//     dateType myDate(20,2,2003);
+//     cout << "Constructor: " << myDate.printDate() << endl;
+//     cout << "Number of days passed: " << myDate.numOfDaysPassed() << endl;
+//     cout << "Number of days left: " << myDate.numOfDaysLeft() << endl;
+//     cout << "Number of days in month: " << myDate.numOfDaysForMonthYear(myDate.getMonth(), myDate.getYear()) << endl;
+//     myDate.addDays(15);
+//     cout << "After 15 days, date will be: " << myDate.printDate() << endl;
+//     myDate.setYear(2000);
+//     cout << "Resetting year to 2000: " << myDate.getYear()  << endl;
+//     cout << myDate.printDate() << endl;
+//     myDate.setMonth(2);
+//     cout << "Resetting month to 2: " << myDate.getMonth() << endl;
+//     cout << myDate.printDate() << endl;
+//     myDate.setDay(29);
+//     cout << "Resetting day to 29: " << myDate.getDay() << endl;
+//     cout << myDate.printDate() << endl;
+//     cout << "Date is now set to: " << myDate.printDate() << endl;
+//     myDate.setYear(2001);
+//     cout << "Resetting year to 2001: " << myDate.getYear()  << endl;
+//     cout << "Date is now set to: " << myDate.printDate() << endl;
+//     myDate.setMonth(0);
+//     cout << "Resetting month to 0: " << myDate.getMonth() << endl;
+//     cout << "Number of days left: " << myDate.numOfDaysLeft() << endl;
+//     cout << "Date is now set to: " << myDate.printDate() << endl;
+//     myDate.addDays(1461);
+//     cout << "After 1461 days, date will be: " << myDate.printDate() << endl;
+//     return 0;
+// }

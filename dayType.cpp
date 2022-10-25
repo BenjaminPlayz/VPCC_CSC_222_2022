@@ -95,17 +95,17 @@ string dayType::addDays(int numOfDaysToAdd) {
     return day;
 }
 
-int main() {
-    dayType mySunday;
-    cout << "From default constructor: ";
-    mySunday.printDay();
-    cout << "Next day: " << mySunday.nextDay() << endl;
-    cout << "Previous day: " << mySunday.previousDay() << endl;
-    dayType myMonday("Monday");
-    cout << "From constructor with parameters: ";
-    myMonday.printDay();
-    cout << "After adding 3 days: " << myMonday.addDays(3) << endl;
-    cout << "After adding 30 days: " << myMonday.addDays(30) << endl;
-    cout << "After adding 365 days: " << myMonday.addDays(365) << endl;
-    return 0;
-}
+// int main() {
+//     dayType mySunday;
+//     cout << "From default constructor: ";
+//     mySunday.printDay();
+//     cout << "Next day: " << mySunday.nextDay() << endl;
+//     cout << "Previous day: " << mySunday.previousDay() << endl;
+//     dayType myMonday("Monday");
+//     cout << "From constructor with parameters: ";
+//     myMonday.printDay();
+//     cout << "After adding 3 days: " << myMonday.addDays(3) << endl;
+//     cout << "After adding 30 days: " << myMonday.addDays(30) << endl;
+//     cout << "After adding 365 days: " << myMonday.addDays(365) << endl;
+//     return 0;
+// }
