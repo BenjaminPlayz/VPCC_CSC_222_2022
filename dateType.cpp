@@ -23,6 +23,7 @@ public:
     string printDate();
     int numOfDaysPassed();
     int numOfDaysLeft();
+    void setDate(int numofDaysToAdd);
 };
 
 dateType::dateType(int x = 1, int y = 1, int z = 1900) {
@@ -66,7 +67,7 @@ bool dateType::isLeapYear(int y) {
 }
 
 int dateType::numOfDaysForMonthYear(int m, int y) {
-    if (m == 1 || m == 4 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12) {
+    if (m == 1 || m == 3 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12) {
        return 31;
     }
     else if (m == 4 || m == 6 || m == 9 || m == 11) {
@@ -82,16 +83,16 @@ int dateType::numOfDaysForMonthYear(int m, int y) {
     return 1;
 }
 
-void dateType::setMonth(int x) {
-    month = x;
+void dateType::setMonth(int m) {
+    setDate(day, m, year);
 }
 
-void dateType::setDay(int x) {
-    day = x;
+void dateType::setDay(int d) {
+    setDate(d, month, year);
 }
 
-void dateType::setYear(int x) {
-    year = x;
+void dateType::setYear(int y) {
+    setDate(day, month, y);
 }
 
 int dateType::getMonth() {
@@ -122,6 +123,36 @@ int dateType::numOfDaysLeft() {
     return (isLeapYear(year) ? 366 : 365) - numOfDaysPassed();
 }
 
+// void dateType::setDate(int numOfDaysToAdd) {
+//     int numDaysTotal = numOfDaysPassed() + numOfDaysToAdd;
+//     int m = 1;
+//     int y = year;
+//     while (numDaysTotal > numOfDaysForMonthYear(m, y)) {
+//         numDaysTotal -= numOfDaysForMonthYear(m, y);
+//         m++;
+//     }
+//     setMonth(m);
+//     setDay(numDaysTotal);
+// }
+
+void dateType::setDate(int numOfDaysToAdd) {
+    int numDaysTotal = numOfDaysPassed() + numOfDaysToAdd;
+    while (numDaysTotal > numOfDaysLeft()) {
+        setMonth(1);
+        setDay(1);
+        setYear(getYear()+1);
+        numDaysTotal = numDaysTotal - numOfDaysLeft() - 1;
+    }
+    int m = 1;
+    int y = year;
+    while (numDaysTotal > numOfDaysForMonthYear(m, y)) {
+        numDaysTotal -= numOfDaysForMonthYear(m, y);
+        m++;
+    }
+    setMonth(m);
+    setDay(numDaysTotal);
+}
+
 int main(){
 
     dateType myDefaultDate;
@@ -131,5 +162,26 @@ int main(){
     cout << "Number of days passed: " << myDate.numOfDaysPassed() << endl;
     cout << "Number of days left: " << myDate.numOfDaysLeft() << endl;
     cout << "Number of days in month: " << myDate.numOfDaysForMonthYear(myDate.getMonth(), myDate.getYear()) << endl;
+    myDate.setDate(15);
+    cout << "After 15 days, date will be: " << myDate.printDate() << endl;
+    myDate.setYear(2000);
+    cout << "Resetting year to 2000: " << myDate.getYear()  << endl;
+    cout << myDate.printDate() << endl;
+    myDate.setMonth(2);
+    cout << "Resetting month to 2: " << myDate.getMonth() << endl;
+    cout << myDate.printDate() << endl;
+    myDate.setDay(29);
+    cout << "Resetting day to 29: " << myDate.getDay() << endl;
+    cout << myDate.printDate() << endl;
+    cout << "Date is now set to: " << myDate.printDate() << endl;
+    myDate.setYear(2001);
+    cout << "Resetting year to 2001: " << myDate.getYear()  << endl;
+    cout << "Date is now set to: " << myDate.printDate() << endl;
+    myDate.setMonth(0);
+    cout << "Resetting month to 0: " << myDate.getMonth() << endl;
+    cout << "Number of days left: " << myDate.numOfDaysLeft() << endl;
+    cout << "Date is now set to: " << myDate.printDate() << endl;
+    myDate.setDate(1096);
+    cout << "After 1096 days, date will be: " << myDate.printDate() << endl;
     return 0;
 }
