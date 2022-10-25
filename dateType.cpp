@@ -1,7 +1,7 @@
 #include "dateType.h"
 
-dateType::dateType(int x = 1, int y = 1, int z = 1900) {
-    setDate(x, y, z);
+dateType::dateType(int d = 1, int m = 1, int y = 1900) {
+    setDate(d, m, y);
 }
 
 void dateType::setDate(int d, int m, int y) {
@@ -109,7 +109,7 @@ int dateType::numOfDaysLeft() {
 //     setDay(numDaysTotal);
 // }
 
-void dateType::setDate(int numOfDaysToAdd) {
+void dateType::addDays(int numOfDaysToAdd) {
     int numDaysTotal = numOfDaysPassed() + numOfDaysToAdd;
     while (numDaysTotal > numOfDaysLeft()) {
         setMonth(1);
@@ -136,7 +136,7 @@ int main(){
     cout << "Number of days passed: " << myDate.numOfDaysPassed() << endl;
     cout << "Number of days left: " << myDate.numOfDaysLeft() << endl;
     cout << "Number of days in month: " << myDate.numOfDaysForMonthYear(myDate.getMonth(), myDate.getYear()) << endl;
-    myDate.setDate(15);
+    myDate.addDays(15);
     cout << "After 15 days, date will be: " << myDate.printDate() << endl;
     myDate.setYear(2000);
     cout << "Resetting year to 2000: " << myDate.getYear()  << endl;
@@ -153,9 +153,9 @@ int main(){
     cout << "Date is now set to: " << myDate.printDate() << endl;
     myDate.setMonth(0);
     cout << "Resetting month to 0: " << myDate.getMonth() << endl;
-    // cout << "Number of days left: " << myDate.numOfDaysLeft() << endl;
-    // cout << "Date is now set to: " << myDate.printDate() << endl;
-    // myDate.setDate(1461);
-    // cout << "After 1461 days, date will be: " << myDate.printDate() << endl;
+    cout << "Number of days left: " << myDate.numOfDaysLeft() << endl;
+    cout << "Date is now set to: " << myDate.printDate() << endl;
+    myDate.addDays(1461);
+    cout << "After 1461 days, date will be: " << myDate.printDate() << endl;
     return 0;
 }

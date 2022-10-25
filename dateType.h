@@ -10,7 +10,7 @@ int dDay;
 int dYear;
 
 public:
-    dateType(int x, int y, int z);
+    dateType(int d, int m, int y);
     void setDate(int d, int m, int y);
     bool isLeapYear(int y);
     int numOfDaysForMonthYear(int m, int y);
@@ -23,5 +23,5 @@ public:
     string printDate();
     int numOfDaysPassed();
     int numOfDaysLeft();
-    void setDate(int numofDaysToAdd);
+    void addDays(int numofDaysToAdd);
 };
