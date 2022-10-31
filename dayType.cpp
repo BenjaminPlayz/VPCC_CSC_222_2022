@@ -1,28 +1,30 @@
-#include <iostream>
-#include <string>
-using namespace std;
+// #include <iostream>
+// #include <string>
+// using namespace std;
 
-class dayType
-{
-private:
-    string day;
-    int dayIndex;
-    string days_of_week[7];
+// class dayType
+// {
+// private:
+//     string day;
+//     int dayIndex;
+//     string days_of_week[7];
 
-    void initDaysOfWeek();
+//     void initDaysOfWeek();
 
-public:
-    dayType();
-    dayType(string theDay);
+// public:
+//     dayType();
+//     dayType(string theDay);
 
-    string getDay();
-    void setDay(string theDay);
+//     string getDay();
+//     void setDay(string theDay);
 
-    void printDay();
-    string nextDay();
-    string previousDay();
-    string addDays(int numOfDaysToAdd);
-};
+//     void printDay();
+//     string nextDay();
+//     string previousDay();
+//     string addDays(int numOfDaysToAdd);
+// };
+
+#include "dayType.h"
 
 void dayType::initDaysOfWeek() {
     days_of_week[0] = "Sunday";
@@ -95,17 +97,17 @@ string dayType::addDays(int numOfDaysToAdd) {
     return day;
 }
 
-// int main() {
-//     dayType mySunday;
-//     cout << "From default constructor: ";
-//     mySunday.printDay();
-//     cout << "Next day: " << mySunday.nextDay() << endl;
-//     cout << "Previous day: " << mySunday.previousDay() << endl;
-//     dayType myMonday("Monday");
-//     cout << "From constructor with parameters: ";
-//     myMonday.printDay();
-//     cout << "After adding 3 days: " << myMonday.addDays(3) << endl;
-//     cout << "After adding 30 days: " << myMonday.addDays(30) << endl;
-//     cout << "After adding 365 days: " << myMonday.addDays(365) << endl;
-//     return 0;
-// }
+int main() {
+    dayType mySunday;
+    cout << "From default constructor: ";
+    mySunday.printDay();
+    cout << "Next day: " << mySunday.nextDay() << endl;
+    cout << "Previous day: " << mySunday.previousDay() << endl;
+    dayType myMonday("Monday");
+    cout << "From constructor with parameters: ";
+    myMonday.printDay();
+    cout << "After adding 3 days: " << myMonday.addDays(3) << endl;
+    cout << "After adding 30 days: " << myMonday.addDays(30) << endl;
+    cout << "After adding 365 days: " << myMonday.addDays(365) << endl;
+    return 0;
+}
