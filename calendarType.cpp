@@ -63,33 +63,21 @@ void calendarType::printTitleAndColumns() {
 }
 
 void calendarType::printDayNumbers() {
-    int intialSpaces = 0;
      int dayIndex = 0;
     if (firstDay.getDay() == "Sunday") {
-        intialSpaces = 4;
     } else if (firstDay.getDay() == "Monday") {
-        intialSpaces = 11;
         dayIndex = 1;
     } else if (firstDay.getDay() == "Tuesday") {
-        intialSpaces = 18;
         dayIndex = 2;
     } else if (firstDay.getDay() == "Wednesday") {
-        intialSpaces = 25;
         dayIndex = 3;
     } else if (firstDay.getDay() == "Thursday") {
-        intialSpaces = 32;
         dayIndex = 4;
     } else if (firstDay.getDay() == "Friday") {
-        intialSpaces = 39;
         dayIndex = 5;
     } else if (firstDay.getDay() == "Saturday") {
-        intialSpaces = 46;
         dayIndex = 6;
     }
-//    for (int i = 0; i < intialSpaces; i++) {
-//        cout << " ";
-//    }
-//    cout << "  " << 1 << endl;
     cout << "     ";
     bool first = true;
     for (int i = 1; i <= firstDate.numOfDaysForMonthYear(firstDate.getMonth(), firstDate.getYear()); i++) {
