@@ -1,3 +1,5 @@
+#include <cassert>
+
 #include "calendarType.h"
 
 calendarType::calendarType (int month, int year) {
@@ -5,6 +7,9 @@ calendarType::calendarType (int month, int year) {
 }
 
 void calendarType::firstDayOfMonth(int month, int year) {
+    assert (month >= 1 && month <= 12);
+    assert (year >= 1900);
+
     firstDate = extDateType(1, month, year);
     int totalDays = 0;
     // total days in previous years
@@ -32,6 +37,8 @@ int calendarType::getMonth() {
 }
 
 void calendarType::setMonth(int month) {
+    assert (month >= 1 && month <= 12);
+
     firstDate.setMonth(month);
 }
 
@@ -40,6 +47,8 @@ int calendarType::getYear() {
 }
 
 void calendarType::setYear(int year) {
+    assert (year >= 1900);
+
     firstDate.setYear(year);
 }
 
