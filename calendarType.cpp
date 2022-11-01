@@ -77,25 +77,27 @@ void calendarType::printDayNumbers() {
         intialSpaces = 46;
         dayIndex = 6;
     }
-    for (int i = 0; i < intialSpaces; i++) {
-        cout << " ";
-    }
-    cout << "  " << 1 << endl;
+//    for (int i = 0; i < intialSpaces; i++) {
+//        cout << " ";
+//    }
+//    cout << "  " << 1 << endl;
+    cout << "     ";
     bool first = true;
     for (int i = 1; i <= firstDate.numOfDaysForMonthYear(firstDate.getMonth(), firstDate.getYear()); i++) {
         if (first) {
             for (int j = 0; j < dayIndex; j++) {
-                cout << "   ";
+                cout << "       ";
             }
             first = false;
         }
-        if (dayIndex % 7 == 0) {
+        if (dayIndex != 0 && dayIndex % 7 == 0) {
             cout << endl;
+            cout << "     ";
         }
         if (i < 10) {
-            cout << " " << i << " ";
+            cout << " " << i << "     ";
         } else {
-            cout << i << " ";
+            cout << i << "     ";
         }
         dayIndex++;
     }
