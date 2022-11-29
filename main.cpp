@@ -1,18 +1,27 @@
-<<<<<<< HEAD
 #include "calendarType.h"
 
 int main() {
     int theMonth;
     int theYear;
 
-    cout << "Enter month (as an integer between 1 and 12): ";
-    cin >> theMonth;
+    bool gettingInitialInput = true;
+    while (gettingInitialInput) {
+        cout << "Enter month (as an integer between 1 and 12): ";
+        cin >> theMonth;
 
-    cout << "Enter year (as a 4-digit integer): ";
-    cin >> theYear;
-
-    calendarType calendar(theMonth, theYear);
-    calendar.printCalendar();
+        cout << "Enter year (as a 4-digit integer): ";
+        cin >> theYear;
+        try {
+            calendarType calendar(theMonth, theYear);
+            calendar.printCalendar();
+            cout << endl;
+            gettingInitialInput = false;
+        } catch (calendarType::calendarException ce) {
+            cout << ce.what() << endl;
+            cout << "Please try again with valid input" << endl;
+            cout << endl;
+        }
+    }
     cout << endl;
 
     char answer;
@@ -23,30 +32,28 @@ int main() {
         if (answer == 'n' || answer == 'N') {
             break;
         }
- 
-        cout << "Enter month (as an integer between 1 and 12): ";
-        cin >> theMonth;
 
-        cout << "Enter year (as a 4-digit integer): ";
-        cin >> theYear;
+        bool gettingMoreInput = true;
+        while (gettingMoreInput) {
+            cout << "Enter month (as an integer between 1 and 12): ";
+            cin >> theMonth;
 
-        calendarType calendar(theMonth, theYear);
-        calendar.printCalendar();
+            cout << "Enter year (as a 4-digit integer): ";
+            cin >> theYear;
+            try {
+                calendarType calendar(theMonth, theYear);
+                calendar.printCalendar();
+                cout << endl;
+                gettingMoreInput = false;
+            } catch (calendarType::calendarException ce) {
+                cout << ce.what() << endl;
+                cout << "Please try again with valid input" << endl;
+                cout << endl;
+            }
+        }
         cout << endl;
     }
 
 
-=======
-#include "dateType.h"
-
-int main(){
-
-    dateType myDefaultDate;
-    cout << "Default constructor: " << myDefaultDate.printDate() << endl;
-    dateType myDate(20,2,2003);
-    cout << "Constructor: " << myDate.printDate() << endl;
-    dateType myBadDate(40,2,2003);
-    cout << "Constructor: " << myBadDate.printDate() << endl;
->>>>>>> dateType_v2
     return 0;
 }

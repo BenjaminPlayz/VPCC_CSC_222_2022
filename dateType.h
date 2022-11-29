@@ -39,7 +39,7 @@ public:
   private:
     string message;
   };
-  dateType(int d = 1, int m = 1, int y = 1900);
+  dateType(int d = 1, int m = 1, int y = 1900) throw(invalidYear, invalidMonth);
   void setDate(int d, int m, int y) throw(invalidYear, invalidMonth,
                                           invalidDay);
   bool isLeapYear(int y);

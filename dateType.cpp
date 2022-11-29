@@ -1,14 +1,8 @@
 #include "dateType.h"
 
-dateType::dateType(int d, int m, int y) {
+dateType::dateType(int d, int m, int y) throw (invalidYear, invalidMonth)  {
   try {
     setDate(d, m, y);
-  } catch (invalidYear iy) {
-    cout << iy.what() << endl;
-    setDate(d, m, 1900);
-  } catch (invalidMonth im) {
-    cout << im.what() << endl;
-    setDate(d, 1, y);
   } catch (invalidDay id) {
     cout << id.what() << endl;
     setDate(1, m, y);
